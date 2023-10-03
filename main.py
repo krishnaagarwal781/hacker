@@ -12,8 +12,8 @@ collection = db["Users"]  # Replace with your collection name
 
 # Configure CORS middleware
 origins = [
-    "http://127.0.0.1:5500",  # Add your local development origin if needed
     "https://frontend-123.netlify.app",
+    "http://127.0.0.1:5500",  # Add your local development origin if needed
 ]
 
 app.add_middleware(

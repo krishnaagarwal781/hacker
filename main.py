@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
 from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware  # Import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 import datetime
 app = FastAPI()
 
@@ -10,9 +10,15 @@ mongo_client = MongoClient("mongodb+srv://parth01:parth123@cluster0.77are8z.mong
 db = mongo_client["Hacking"]  # Replace with your database name
 collection = db["Users"]  # Replace with your collection name
 
+# Configure CORS middleware
+origins = [
+    "http://127.0.0.1:5500",  # Add your local development origin if needed
+    "https://frontend-123.netlify.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500","https://frontend-123.netlify.app"],  # Replace with your frontend domain
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

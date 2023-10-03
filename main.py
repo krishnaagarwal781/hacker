@@ -12,7 +12,7 @@ collection = db["Users"]  # Replace with your collection name
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],  # Replace with your frontend domain
+    allow_origins=["http://127.0.0.1:5500","https://frontend-123.netlify.app"],  # Replace with your frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
